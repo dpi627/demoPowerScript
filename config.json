@@ -1,0 +1,21 @@
+{
+    "websiteName": "Default Web Site",
+    "userName": "apac\\efile_tw",
+    "password": "mypassword",
+    "appName": "App",
+    "virtualPaths": [
+      {
+        "vPath": "SP_AFL",
+        "pPath": "\\\\twfs007\\AFL"
+      },
+      {
+        "vPath": "SP_SL",
+        "pPath": "\\\\twfs007\\SL"
+      },
+      {
+        "vPath": "SP_HL",
+        "pPath": "\\\\twfs007\\HL"
+      }
+    ]
+  }
+  
