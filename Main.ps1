@@ -1,7 +1,43 @@
-#載入 IIS 模組
+#載入外部檔案
+. .\Enum.ps1
+. .\Func.ps1
+
+#載入模組
 Import-Module WebAdministration
 
-#讀取設定檔 config.json
+# 聲明參數區塊以接收傳入的值
+param(
+    [Parameter(Mandatory=$true)]
+    [string]$Mode
+)
+
+# 使用傳入的 $Mode 變數
+Write-Output "Mode: $Mode"
+
+#讀取指令變數
+$mode = $Mode
+Write-Output "Mode: $mode"
+switch ($mode) {
+    "Create" { 
+        # 執行 Create 操作
+        Write-Output "do Create"
+    }
+    "Delete" { 
+        # 執行 Delete 操作
+        Write-Output "do Delete"
+    }
+    "Update" { 
+        # 執行 Update 操作
+        Write-Output "do Update"
+    }
+    default {
+        # 傳遞給腳本的列舉值不在預期範圍內
+        Write-Error "Invalid Mode specified."
+    }
+}
+
+
+#讀取設定檔
 $jsonFile = "config.json"
 $json = Get-Content $jsonFile | ConvertFrom-Json
 
@@ -11,11 +47,11 @@ $userName = $json.userName
 $password = $json.password
 $appName = $json.appName
 
+#設定操作模式
+$removeOnly = $json.removeOnly -as [bool]
+
 #設定虛擬目錄清單
 $virtualPaths = $json.virtualPaths
-
-#引用 Create-VirtualDirectory.ps1 檔案
-. .\Func.ps1
 
 #建立虛擬目錄並設定連線身分
 foreach ($virtualPath in $virtualPaths) {
