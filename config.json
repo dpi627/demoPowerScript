@@ -1,20 +1,20 @@
 {
     "websiteName": "Default Web Site",
     "userName": "apac\\efile_tw",
-    "password": "mypassword",
-    "appName": "App",
+    "password": "OADApplicationPW!@#$%^02",
+    "appName": "Base",
     "virtualPaths": [
       {
         "vPath": "SP_AFL",
-        "pPath": "\\\\twfs007\\AFL"
+        "pPath": "\\\\twfs007\\LIMSV2\\Testing"
+      },
+      {
+        "vPath": "SP_CCL",
+        "pPath": "\\\\twfs007\\LIMSV2\\Testing"
       },
       {
         "vPath": "SP_SL",
-        "pPath": "\\\\twfs007\\SL"
-      },
-      {
-        "vPath": "SP_HL",
-        "pPath": "\\\\twfs007\\HL"
+        "pPath": "\\\\twfs007\\LIMSV2\\Testing"
       }
     ]
   }
